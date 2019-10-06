@@ -8,6 +8,20 @@ let missed = 0;
 const overlay = document.getElementById('overlay');
 const startButton = overlay.getElementsByClassName('btn__reset')[0];
 
+
+/* *********** //
+    Phrases
+// *********** */
+
+const phraseList = [
+    'when pigs fly',
+    'hip hip hooray',
+    'a dime a dozen',
+    'a piece of cake',
+    'when in rome'
+]
+
+
 /* *********** //
    ~~ Magic ~~
 // *********** */
@@ -17,4 +31,3 @@ const startButton = overlay.getElementsByClassName('btn__reset')[0];
 startButton.addEventListener('click', () => {
     overlay.style.display = 'none';
 });
-
