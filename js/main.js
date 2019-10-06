@@ -31,3 +31,14 @@ const phraseList = [
 startButton.addEventListener('click', () => {
     overlay.style.display = 'none';
 });
+
+function getRandomPhraseAsArray(arr) {   
+    //random number between 0 and 5
+    let randomNum = Math.floor(Math.random() * arr.length);
+    //grab random phrase from array
+    let chosenPhrase = arr[randomNum];
+    let newCharacterArray = chosenPhrase.split('');
+    return newCharacterArray;
+};
+
+console.log(getRandomPhraseAsArray(phraseList));
