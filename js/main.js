@@ -19,7 +19,7 @@ const phraseList = [
     'a dime a dozen',
     'a piece of cake',
     'when in rome'
-]
+];
 
 
 /* *********** //
