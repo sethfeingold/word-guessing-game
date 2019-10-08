@@ -66,3 +66,20 @@ function addPhraseToDisplay(arr) {
 };
 
 addPhraseToDisplay(gamePhrase);
+
+// Check Letter Function
+
+function checkLetter(letterClicked) {
+    let phraseLetters = document.getElementsByClassName('letter');
+    
+    for (let i = 0; i < phraseLetters.length; i++) {
+        if (letterClicked === phraseLetters[i]) {
+            phraseLetters[i].classList.add('show');
+            let correctLetter = phraseLetters[i];
+            return correctLetter;
+        } else {
+            return null;
+        }
+    };
+};
+
