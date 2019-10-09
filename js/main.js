@@ -71,15 +71,19 @@ addPhraseToDisplay(gamePhrase);
 // Check Letter Function
 
 function checkLetter(letterClicked) {
-    let letters = document.getElementsByClassName('letter');
-
+    const letters = document.querySelectorAll('.letter');
+    let match;
     for (let i = 0; i < letters.length; i++) {
         if (letterClicked === letters[i].innerText) {
             letters[i].className += ' show';
-            let correctLetter = letters[i].innerText;
-            return correctLetter;
+            match = letterClicked;
+            break;
+        }
+        else {
+            match = null;
         }
     };
+    return match;
 };
 
 // Keyboard Event Listener
@@ -88,7 +92,10 @@ keyboard.addEventListener('click', (e) => {
     if (e.target.type === 'submit') {
         e.target.className = 'chosen';
         e.target.setAttribute('disabled', true);
-        checkLetter(e.target.innerText);
+        let letterFound = checkLetter(e.target.innerText);
+        if (letterFound === null) {
+            missed += 1;
+        }
     }
 });
 
