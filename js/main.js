@@ -8,7 +8,8 @@ let missed = 0;
 const overlay = document.getElementById('overlay');
 const startButton = overlay.getElementsByClassName('btn__reset')[0];
 const phraseUL = phrase.firstElementChild;
-
+const heartsList = document.querySelectorAll('.tries');
+console.log(heartsList);
 
 
 /* *********** //
@@ -49,13 +50,14 @@ function getRandomPhraseAsArray(arr) {
 }
 
 // Store result of getRandomPhraseAsArray
+
 let gamePhrase = getRandomPhraseAsArray(phraseList);
 
 // Add Phrase to Display Function
 
 function addPhraseToDisplay(arr) {
     for (let i = 0; i < arr.length; i++) {
-        let phraseLI = document.createElement('li');
+        let phraseLI = document.createElement('LI');
         phraseLI.innerText = arr[i];
 
         if (phraseLI.innerText !== " ") {
@@ -100,6 +102,26 @@ keyboard.addEventListener('click', (e) => {
         }
     }
     checkWin();
+
+    // Remove hearts based on number of misses
+
+    switch (missed) {
+        case 1:
+            heartsList[0].innerHTML = '<img src="images/lostHeart.png" height="35px" width="30px"></img>';
+            break;
+        case 2:
+            heartsList[1].innerHTML = '<img src="images/lostHeart.png" height="35px" width="30px"></img>';
+            break;
+        case 3:
+            heartsList[2].innerHTML = '<img src="images/lostHeart.png" height="35px" width="30px"></img>';
+            break;
+        case 4:
+            heartsList[3].innerHTML = '<img src="images/lostHeart.png" height="35px" width="30px"></img>';
+            break;
+        case 5:
+            heartsList[4].innerHTML = '<img src="images/lostHeart.png" height="35px" width="30px"></img>';
+            break;
+    }
 });
 
 // checkWin Function
