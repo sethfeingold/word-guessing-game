@@ -9,7 +9,8 @@ const overlay = document.getElementById('overlay');
 const startButton = overlay.getElementsByClassName('btn__reset')[0];
 const phraseUL = phrase.firstElementChild;
 const heartsList = document.querySelectorAll('.tries');
-console.log(heartsList);
+const winBanner = document.getElementsByClassName('win')[0];
+const loseBanner = document.getElementsByClassName('lose')[0];
 
 
 /* *********** //
@@ -129,7 +130,11 @@ keyboard.addEventListener('click', (e) => {
 function checkWin() {
     if (document.querySelectorAll('.letter').length === document.querySelectorAll('.show').length) {
         console.log('you win!');
+        winBanner.style.display = 'flex';
+        overlay.style.display = 'initial';
     } if (missed === 5) {
         console.log('you lose!')
+        loseBanner.style.display = 'flex';
+        overlay.style.display = 'initial';
     }
 }

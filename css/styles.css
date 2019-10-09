@@ -148,6 +148,16 @@ button {
 
 .win {
   background-color: var(--color-win);
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+  z-index: 2000;
 }
 
 .win a {
@@ -156,6 +166,16 @@ button {
 
 .lose {
   background-color: var(--color-lose);
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+  z-index: 2000;
 }
 
 .lose a {
