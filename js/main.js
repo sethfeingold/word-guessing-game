@@ -60,6 +60,8 @@ function addPhraseToDisplay(arr) {
 
         if (phraseLI.innerText !== " ") {
             phraseLI.className = 'letter';
+        } else if (phraseLI.innerText === ' ') {
+            phraseLI.className = 'space';
         }
 
         phraseUL.appendChild(phraseLI);
