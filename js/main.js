@@ -97,13 +97,15 @@ keyboard.addEventListener('click', (e) => {
             missed += 1;
         }
     }
-    console.log(missed);
+    checkWin();
 });
 
 // checkWin Function
 
 function checkWin() {
-    if (document.getElementsByClassName('letter').length === document.getElementsByClassName('show')) {
-        document.getElementsByClassName('win')[0].style.display = 'block';
+    if (document.querySelectorAll('.letter').length === document.querySelectorAll('.show').length) {
+        console.log('you win!');
+    } if (missed === 5) {
+        console.log('you lose!')
     }
 }
