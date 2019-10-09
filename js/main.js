@@ -46,7 +46,7 @@ function getRandomPhraseAsArray(arr) {
     let newCharacterArray = chosenPhrase.split('');
     //return array of new characters
     return newCharacterArray;
-};
+}
 
 // Store result of getRandomPhraseAsArray
 let gamePhrase = getRandomPhraseAsArray(phraseList);
@@ -64,7 +64,7 @@ function addPhraseToDisplay(arr) {
 
         phraseUL.appendChild(phraseLI);
     }
-};
+}
 
 addPhraseToDisplay(gamePhrase);
 
@@ -77,14 +77,14 @@ function checkLetter(letterClicked) {
         if (letterClicked === letters[i].innerText) {
             letters[i].className += ' show';
             match = letterClicked;
-            break;
-        }
-        else {
-            match = null;
         }
     };
+    if (match) {
     return match;
-};
+    } else {
+    return null
+    }
+}
 
 // Keyboard Event Listener
 
@@ -97,6 +97,13 @@ keyboard.addEventListener('click', (e) => {
             missed += 1;
         }
     }
+    console.log(missed);
 });
 
-console.log(gamePhrase);
+// checkWin Function
+
+function checkWin() {
+    if (document.getElementsByClassName('letter').length === document.getElementsByClassName('show')) {
+        document.getElementsByClassName('win')[0].style.display = 'block';
+    }
+}
