@@ -11,6 +11,7 @@ const phraseUL = phrase.firstElementChild;
 const heartsList = document.querySelectorAll('.tries');
 const winBanner = document.getElementsByClassName('win')[0];
 const loseBanner = document.getElementsByClassName('lose')[0];
+const resetButtons = document.getElementsByClassName('restart-game');
 
 
 /* *********** //
@@ -142,5 +143,10 @@ function checkWin() {
 // gameReset Function
 
 function gameReset() {
-    
+    console.log(`I see you've tried resetting the game!!`)
 }
+
+// Reset Button Listeners
+
+resetButtons[0].addEventListener('click', () => {gameReset()});
+resetButtons[1].addEventListener('click', () => {gameReset()});
