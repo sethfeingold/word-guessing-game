@@ -138,3 +138,9 @@ function checkWin() {
         overlay.style.display = 'initial';
     }
 }
+
+// gameReset Function
+
+function gameReset() {
+    
+}
