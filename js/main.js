@@ -19,11 +19,22 @@ const resetButtons = document.getElementsByClassName('restart-game');
 // *********** */
 
 const phraseList = [
-    'when pigs fly',
-    'hip hip hooray',
-    'a dime a dozen',
-    'a piece of cake',
-    'when in rome'
+    'When pigs fly',
+    'Hip hip hooray',
+    'A dime a dozen',
+    'A piece of cake',
+    'When in Rome',
+    'Life is Short',
+    'Happily ever after',
+    'You only live once',
+    'The best of both worlds',
+    'It takes two to tango',
+    'Once in a blue moon',
+    'You are what you eat',
+    'Keep your fingers crossed',
+    'Curiosity killed the cat',
+    'Raining cats and dogs',
+    'Down to the wire',
 ];
 
 
@@ -80,7 +91,7 @@ function checkLetter(letterClicked) {
     const letters = document.querySelectorAll('.letter');
     let match;
     for (let i = 0; i < letters.length; i++) {
-        if (letterClicked === letters[i].innerText) {
+        if (letterClicked === letters[i].innerText.toLowerCase()) {
             letters[i].className += ' show';
             match = letterClicked;
         }
@@ -130,20 +141,36 @@ keyboard.addEventListener('click', (e) => {
 
 function checkWin() {
     if (document.querySelectorAll('.letter').length === document.querySelectorAll('.show').length) {
-        console.log('you win!');
         winBanner.style.display = 'flex';
-        overlay.style.display = 'initial';
     } if (missed === 5) {
-        console.log('you lose!')
         loseBanner.style.display = 'flex';
-        overlay.style.display = 'initial';
     }
 }
 
 // gameReset Function
 
 function gameReset() {
-    console.log(`I see you've tried resetting the game!!`)
+
+    //keyboard reset
+    const chosenKeys = document.querySelectorAll('.chosen');
+    for (let i = 0; i < chosenKeys.length; i++) {
+        chosenKeys[i].removeAttribute('disabled');
+        chosenKeys[i].removeAttribute('class');
+    };
+    //hearts reset
+    for (let i = 0; i < heartsList.length; i++) {
+        heartsList[i].innerHTML = '<img src="images/liveHeart.png" height="35px" width="30px"></img>';
+    };
+    //phrase reset
+    phraseUL.innerHTML = "<ul></ul>";
+    //missed reset
+    missed = 0;
+    //hide win or lose overlay
+    loseBanner.style.display = 'none';
+    winBanner.style.display = 'none';
+    //add new game phrase to display
+    gamePhrase = getRandomPhraseAsArray(phraseList);
+    addPhraseToDisplay(gamePhrase);
 }
 
 // Reset Button Listeners
